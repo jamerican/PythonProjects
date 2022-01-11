@@ -20,20 +20,30 @@ class AVL_TREE:
             return Node(key)
         if key < root.key:
             root.left = self.insert_helper(root.left, key)
-            self.update(root)
+            #self.update(root)
             return True
         else:
             root.right = self.inset_helper(root.right, key)
-            self.update(root)
+            #self.update(root)
             return True
         return False
 
 
     #BR Update Methods
     def update(self, root):
-        root.bf = height(root.right) - height(root.left)
+        root.bf = self.height(root.right) - self.height(root.left)
+        if -1 <= root.bf <= 1:
+            return
+        else:
 
-    def height
+
+    def height(self, root):
+        if not root.left and not root.right:
+            return 0
+        else:
+            left_tree = 1 + self.height(root.left)
+            right_tree = 1 + self.height(root.right)
+            return max(left_tree, right_tree)
 
     #Balance Methods
 
