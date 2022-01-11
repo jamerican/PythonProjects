@@ -32,9 +32,7 @@ class AVL_TREE:
     #BR Update Methods
     def update(self, root):
         root.bf = self.height(root.right) - self.height(root.left)
-        if -1 <= root.bf <= 1:
-            return
-        else:
+
 
 
     def height(self, root):
