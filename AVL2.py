@@ -33,15 +33,13 @@ class AVL_TREE:
     def delete(self, key):
         pass
 
-    def delete(self, root, key):\
+    def delete_helper(self, root, key):
         pass
 
 
     #BR Update Methods
     def update(self, root):
         root.bf = self.height(root.right) - self.height(root.left)
-
-
 
     def height(self, root):
         if not root.left and not root.right:
@@ -76,4 +74,26 @@ class AVL_TREE:
         pass
     def RightLeftRotate(self, root):
         pass
+
+    #Helper Methods
+    def parent(self, root):
+        if root.key == self.root.key:
+            return None
+        else:
+            return self.parent_helper(root.key, self.root)
+
+    def parent_helper(self, key, root):
+        if key < root.key:
+            if root.left.key == key:
+                print(root.key)
+                return root
+            else:
+                return self.parent(key, root.left)
+        elif key > root.key:
+            if root.right.key == key:
+                print(root.key)
+                return root
+            else:
+                return self.parent(key, root.right)
+
 
