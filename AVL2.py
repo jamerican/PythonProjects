@@ -18,7 +18,9 @@ class AVL_TREE:
 
     def insert_helper(self, root, key):
         if root is None:
-            return Node(key)
+            new_node = Node(key)
+            new_node.bf = 0
+            return new_node
         if key < root.key:
             root.left = self.insert_helper(root.left, key)
             #self.update(root)
